@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AgroDrone Monitor</title>
+	<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+	<header>
+		<div class="brand">
+			<span class="logo">◈</span>
+			<h1>AgroDrone Monitor</h1>
+		</div>
+		<div class="clock">
+			<span class="clock-item"><span class="label">тик</span> <span id="tick">0</span></span>
+			<span class="clock-item"><span class="label">время</span> <span id="now">—</span></span>
+		</div>
+		<button id="btn-tick" class="primary">Следующий тик ▶</button>
+	</header>
+
+	<main>
+		<section class="panel">
+			<div class="panel-header">
+				<h2>Поля</h2>
+				<button class="ghost" id="btn-add-field">+ поле</button>
+			</div>
+			<ul id="fields-list" class="list"></ul>
+
+			<div class="panel-header" style="margin-top: 24px;">
+				<h2>Карта поля</h2>
+				<span id="field-title" class="muted small">не выбрано</span>
+			</div>
+			<div class="canvas-wrap">
+				<canvas id="field-map" width="520" height="520"></canvas>
+			</div>
+			<div class="legend">
+				<span><i class="dot dot-good"></i> здоровое</span>
+				<span><i class="dot dot-warn"></i> проблемное</span>
+				<span><i class="dot dot-unknown"></i> не сканировано</span>
+				<span><i class="dot dot-drone"></i> дрон</span>
+			</div>
+		</section>
+
+		<section class="panel">
+			<div class="panel-header">
+				<h2>Парк дронов</h2>
+				<button class="ghost" id="btn-add-drone">+ дрон</button>
+			</div>
+			<ul id="drones-list" class="list"></ul>
+
+			<div class="panel-header" style="margin-top: 24px;">
+				<h2>Очередь задач</h2>
+				<button class="ghost" id="btn-add-task">+ задача</button>
+			</div>
+			<ul id="tasks-list" class="list"></ul>
+
+			<div class="panel-header" style="margin-top: 24px;">
+				<h2>Лог событий</h2>
+				<button class="ghost" id="btn-clear-log">очистить</button>
+			</div>
+			<div id="log" class="log"></div>
+		</section>
+	</main>
+
+	<div id="modal" class="modal hidden">
+		<div class="modal-box">
+			<h3 id="modal-title">Заголовок</h3>
+			<div id="modal-body"></div>
+			<div class="modal-actions">
+				<button class="ghost" id="modal-cancel">Отмена</button>
+				<button class="primary" id="modal-ok">Создать</button>
+			</div>
+		</div>
+	</div>
+
+	<script src="./app.js"></script>
+</body>
+</html>
